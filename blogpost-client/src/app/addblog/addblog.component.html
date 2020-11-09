@@ -1,0 +1,43 @@
+<app-blognav></app-blognav>
+<div class="container">
+    <div class="row">
+        <h3>Add Blog Post</h3>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" id="title" name="title" [disabled]='loading' (change)="titleChangeHandler($event)">
+                    <label for="title">Title</label>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="input-field">
+                    <select id="status" 
+                    name="status" 
+                    (change)="selectChangeHandler($event)"
+                    [disabled]='loading'>
+                        <option value="public">Public</option>
+                        <option value="private" selected>Private</option>
+                    </select>
+                    <label for="status">Status</label>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="input-field">
+                    <h5>Write your blog here:</h5>
+                    <textarea id="body" 
+                    name="body" 
+                    class="materialize-textarea" 
+                    (change)="bodyChangeHandler($event)" 
+                    [disabled]='loading'></textarea>
+                </div>
+            </div>
+    
+            <div class="row">
+                <input type="submit" value="Save" class="btn" [disabled]='loading' (click)="submitBlogPost()">
+                <button (click)="cancelHandler()" class="btn orange" [disabled]='loading'>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

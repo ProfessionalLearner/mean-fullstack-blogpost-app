@@ -1,0 +1,48 @@
+<app-blognav></app-blognav>
+
+<h5>Dashboard</h5>
+<h4>Welcome {{getUserName()}}</h4>
+<h6 class="center">Here are your blogposts</h6>
+
+<div *ngIf='doBlogpostExist() && !loading'>
+    <div class="row">
+        <div class="col s10 offset-s2">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor ="let blogpost of userPosts">
+                            <td>{{blogpost.title}}</td>
+                            <td>{{blogpost.createdAt | date:'medium'}}</td>
+                            <td><span class="blogpost-status">{{blogpost.status}}</span></td>
+                            <td>
+                                <a href="/blogposts/edit/{{blogpost._id}}" class="btn blue btn-float">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                
+                                <button (click)="deleteBlogPosts(blogpost._id)" class="btn red">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!doBlogpostExist()" class='center'>
+    <h7 class='center'>You have not created any stories</h7>
+</div>
+
+
+<div class="fixed-action-btn">
+    <a href="blogposts/create" class="btn-floating btn-large waves-effect waves-light red"><i class="fa fa-plus"></i></a>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col s6 offset-s3 grey darken-3 login-form">
+        <div class="card-title white-text center">
+            <h2>Login</h2>
+        </div>
+        <div class="input-field white-text">
+            <input
+                id="email"
+                type="text"
+                name="email"
+                [(ngModel)]='user.email'
+            />
+            <label htmlFor="email">Email</label>
+        </div>
+        <div class="input-field">
+            <input
+                id="password"
+                type="password"
+                name="password"
+                [(ngModel)]='user.password'
+            />
+            <label htmlFor="password">Password</label>
+        </div>
+
+        <br>
+
+        <div class='card-action'>
+            <button class="btn yellow darken-4" (click)='loginUser()' [disabled]='loading'>Login</button>
+            <button class="btn grey ligthen-1 black-text" [disabled]='loading'  [routerLink]="['/register']">Sign up</button>
+        </div>
+    </div>
+</div>

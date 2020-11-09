@@ -1,0 +1,17 @@
+<app-blognav></app-blognav>
+<div class="row">
+    <div class="col m8 offset-m2">
+        <h3> 
+            {{blogpostInfo.title}}
+        </h3>
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title">{{blogpostInfo.user.username}}</span>
+                <p>
+                    {{blogpostInfo.createdAt | date:"medium"}}
+                </p>
+                {{blogpostInfo.body}}
+            </div>
+        </div>
+    </div>
+</div>

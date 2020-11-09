@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "databaseURI": "mongodb://localhost:27017/blogpostapp",
+    "jwtSecret": "FatherDagoniswatchingyou"
+}

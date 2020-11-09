@@ -1,0 +1,28 @@
+<app-blognav></app-blognav>
+
+<div *ngIf="!doBlogpostsExist()">
+    <h5 class="center">Sorry, no blog posts to display</h5>
+</div>
+
+<div *ngIf='doBlogpostsExist()'>
+    <h5 class="center">Here are public blogposts by you and other users.</h5>
+    <div class="row">
+        <div *ngFor="let blog of blogposts">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <h5>{{blog.title}}</h5>
+                        <p>{{blog.body | firstNWords:15}}</p>
+                        <br>
+                        <div class="chip">
+                            <span>{{blog.user.username}}</span>
+                        </div>
+                    </div>
+                    <div class="card-action center-align">
+                        <a href='blogposts/{{blog._id}}' class="btn grey">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
